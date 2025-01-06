@@ -38,6 +38,6 @@ def Main():
     print("Wilkommen zum Vokale Zähler")
     print("Gebe dafür Text ein um es zählen zu lassen:")
     inp = input().strip()
-    result = VocalCounterExtended(inp)
+    VocalCounterExtended(inp)
 
 Main()
