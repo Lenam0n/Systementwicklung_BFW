@@ -37,7 +37,7 @@ def CheckedText(a):
 def Main():
     print("Wilkommen zum Vokale Zähler")
     print("Gebe dafür Text ein um es zählen zu lassen:")
-    inp = input().strip()
+    inp = input().strip() #! strip entfehrnt alle anfänglichen und endlichen whitespaces
     VocalCounterExtended(inp)
 
 Main()

@@ -6,6 +6,8 @@ import re
 
 def VocalCounterExtended(w):
     result = CheckedText(w)
+    #! Validate auf Leere Eingabe fehlt!
+    
     zeichen = "aeiouAEIOU.,!?;:()\-_[]"
 
     counter = {b: 0 for b in zeichen}
