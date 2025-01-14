@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="158D794CD486859B">
+  <PROJECT FORMAT="1.00" NAME="LA03_05" AUTHOR="Lenam0n" CREATED="2025.01.13 08:21:00" MODIFIED="2025.01.13 08:41:56">
+    <DIAGRAMS>
+      <DIAGRAM FORMAT="1.00" ID="0" NAME="Hauptprogramm 1" CREATED="2025.01.13 08:21:13" MODIFIED="2025.01.13 08:41:56">
+        <LAYOUT FORMAT="1.00" COLUMNS="3" ROWS="15">
+          <ENTRIES>
+            <ENTRY COLUMN="0" ROW="3">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="16">
+                <TEXT><![CDATA[Liste alle Dateien auf]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="4">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="63">
+                <TEXT><![CDATA[Erstellen eines Leeren Dictionary]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="5">
+              <FIGURE SUBTYPE="PapLoopStart" FORMAT="1.00" ID="50" ASSOCIATE="51">
+                <TEXT><![CDATA[Für jede Datei]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="6">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="53">
+                <TEXT><![CDATA[Ermitteln des Pfades]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="7">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="55">
+                <TEXT><![CDATA[Ermitteln der Größe]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="8">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="57">
+                <TEXT><![CDATA[Ermittlung der Datei Endung]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="9">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="59">
+                <TEXT><![CDATA[Werte werden in ein Dictionary abgespeichert]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="10">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="61">
+                <TEXT><![CDATA[Dictionary wird zu einem größeren Dictionary als Sub Dictionary hinzugefügt]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="11">
+              <FIGURE SUBTYPE="PapLoopEnd" FORMAT="1.00" ID="51" ASSOCIATE="50">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="12">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="22">
+                <TEXT><![CDATA[Ergebnis Ausgabe]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="13">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="36">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="0" ANCHOR="True">
+              <FIGURE SUBTYPE="PapTitle" FORMAT="1.00" ID="0">
+                <TEXT><![CDATA[Hauptprogramm 1]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="1">
+              <FIGURE SUBTYPE="PapStart" FORMAT="1.00" ID="1">
+                <TEXT><![CDATA[Start]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="2">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="4">
+                <TEXT><![CDATA[Hole Ordnerpfad (static)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="3">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="6">
+                <TEXT><![CDATA[Exsistiert der Pfad?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="13">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="32">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="14">
+              <FIGURE SUBTYPE="PapEnd" FORMAT="1.00" ID="2">
+                <TEXT><![CDATA[Ende]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="3">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="8">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="5">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="23">
+                <TEXT><![CDATA[FEHLER "Ordner nicht gefunden"]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="10">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="26">
+                <TEXT><![CDATA[Error Handling]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="12">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="29">
+                <TEXT><![CDATA[ErrorAusgabe / Beenden des Codes]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="13">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="40">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+          </ENTRIES>
+        </LAYOUT>
+        <CONNECTIONS>
+          <CONNECTION FORMAT="1.00" ID="3" FROM="1" TO="4" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="5" FROM="4" TO="6" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="9" FROM="6" TO="8" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="18" FROM="16" TO="63" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="15" FROM="8" TO="23" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="52" FROM="51" TO="22" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="25" FROM="23" TO="26" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="28" FROM="26" TO="29" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="33" FROM="32" TO="2" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="11" FROM="6" TO="16" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="35" FROM="22" TO="36" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="39" FROM="36" TO="32" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="31" FROM="29" TO="40" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="44" FROM="40" TO="32" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="49" FROM="50" TO="53" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="54" FROM="53" TO="55" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="56" FROM="55" TO="57" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="58" FROM="57" TO="59" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="60" FROM="59" TO="61" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="62" FROM="61" TO="51" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="64" FROM="63" TO="50" TEXT="" />
+        </CONNECTIONS>
+      </DIAGRAM>
+    </DIAGRAMS>
+  </PROJECT>
+</FRAME>
