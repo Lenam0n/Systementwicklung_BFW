@@ -1,0 +1,52 @@
+'''
+Führt eine Addition durch und gibt das formatierte Ergebnis zurück.
+
+Args:
+    #* a (float): Der erste Summand.
+    #* b (float): Der zweite Summand.
+
+Returns:
+    #? str: Ein String mit der Berechnung und dem Ergebnis.
+'''
+
+------------------------------------------------------------------------------------
+
+'''
+Führt eine Subtraktion durch und gibt das formatierte Ergebnis zurück.
+
+Args:
+    #* a (float): Der Minuend.
+    #* b (float): Der Subtrahend.
+
+Returns:
+    #? str: Ein String mit der Berechnung und dem Ergebnis.
+'''
+
+------------------------------------------------------------------------------------
+
+'''
+Führt eine Multiplikation durch und gibt das formatierte Ergebnis zurück.
+
+Args:
+    #* a (float): Der erste Faktor.
+    #* b (float): Der zweite Faktor.
+
+Returns:
+    #? str: Ein String mit der Berechnung und dem Ergebnis.
+'''
+
+------------------------------------------------------------------------------------
+
+'''
+Führt eine Division durch und gibt das formatierte Ergebnis zurück.
+
+Args:
+    #* a (float): Der Dividend.
+    #* b (float): Der Divisor.
+
+Returns:
+    #? str: Ein String mit der Berechnung und dem Ergebnis.
+
+Errors:
+    #! ZeroDivisionError: Falls durch 0 geteilt wird.
+'''

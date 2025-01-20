@@ -73,7 +73,7 @@ def generate_password(length: int, charset: list[str]) -> str:
             raise ValueError("Die Passwortlänge muss größer als 0 sein.")
         if not charset:
             raise ValueError("Der Zeichensatz darf nicht leer sein.")
-        return ''.join(random.choices(charset, k=length))
+        return ''.join(random.choices(population=charset, k=length))
     except Exception as e:
         error_output(f"Fehler bei der Passwortgenerierung: {e}")
         return ""

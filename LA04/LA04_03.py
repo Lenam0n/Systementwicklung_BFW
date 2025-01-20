@@ -1,27 +1,34 @@
-import re 
-'''
-#? from re import fullmatch 
-#!bessere Import variante weil nur fullmatch von re genutzt wird
-'''
+import string
+import re
 import os
 import random
-import string
+from datetime import datetime
 #from ..Utils.globalUtils import validate #! muss ich mir nochmal anschauen
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #? >>>           Global Util             >>>
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+'''
+#! Custom input Funktion mit eingebauter Validierungsverweisung
+def c_input() -> str | int | float:
+    #Kommentar
+    return
+'''
+
 def validate(d: str, type: str) -> bool:
     '''
-    Validiert eine Eingabe basierend auf Typ.
-    
+    Validiert eine Eingabe basierend auf einem bestimmten Typ.
+
     Args:
-        #* d (str): Daten die zu prüfende Eingabe.
-        #* type (str): Der Typ der Validierung (z.B. "num", "text").
-        
+        #* d (str): Die zu prüfende Eingabe.
+        #* type (str): Der Typ der Validierung (z.B. "num" für Zahlen, "text" für Buchstaben).
+
     Returns:
         #? bool: True, wenn die Eingabe gültig ist, sonst False.
+
+    Errors:
+        #! ValueError: Falls ein ungültiger Typ angegeben wurde.
     '''
     
     regex_patterns = {
@@ -31,93 +38,228 @@ def validate(d: str, type: str) -> bool:
 
     if type not in regex_patterns:
         raise ValueError(f"Ungültiger Typ: '{type}' wird nicht unterstützt.") 
-        #? -> KeyError ist besser zu beschreiben
     
-    valid_input:any = re.fullmatch(regex_patterns[type], str(d)) #! str(d) muss gecasted werden. Keine Ahnung warum. Muss ich nachschauen!
+    valid_input:any = re.fullmatch(regex_patterns[type], str(d)) 
 
     return bool(valid_input)
 
-def error_Ausgabe(e:any):
+def error_ausgabe(e: Exception) -> None:
     '''
-    Generiert eine Ausgabe von Errors nach vorgefertigter Formatierung
+    Gibt eine Fehlernachricht formatiert aus.
 
     Args:
-        #* e (any): Ist der auszugebende Error
+        #* e (Exception): Die auszugebende Exception.
+
+    Returns:
+        #? None: Gibt nur eine formatierte Fehlermeldung aus.
     '''
-    print(f"{e}") #? Formatierung sollte noch implementiert werden
 
-def ausgabe(t:str):
-    print(f"{t}") #? Formatierung sollte noch implementiert werden
+    print(f"Error ({type(e).__name__}): {e}")
 
-def message_err():
-    ''' Ausgabe das eine fehlerhafte Eingabe gemacht wurde und erneute Eingabe abgefragt wird'''
+def message_err(error_message: str = "Ungültige Eingabe!") -> None:
+    '''
+    Gibt eine generische oder spezifische Fehlermeldung aus und fordert zur erneuten Eingabe auf.
 
-    print("Ungültige Eingabe!") 
+    Args:
+        #* error_message (str, optional): Die spezifische Fehlermeldung. Standard: "Ungültige Eingabe!".
+
+    Returns:
+        #? None: Gibt nur eine Fehlermeldung aus.
+    '''
+
+    print(f"Error: {error_message}")
     print("Versuche es nochmal:")
+
+def error_ausgabe_wrapper(func:any, e:any, func_menue:any = None) -> None:
+    #! Muss ich nochmal schauen ob ich alle funktionen in ein While wrappe und hier immer die Message mitgebe
+    '''
+    Wrapped die Fehlerausgabe und erweitert sie um zusätzliche Funktionalität (z.B. Menü-Neuladen).
+
+    Args:
+        #* func (any): Die Fehlerausgabe-Funktion.
+        #* e (any): Der Fehler, der weitergegeben wird.
+        #* func_menue (any, optional): Falls mitgegeben, wird nach dem Fehler das Menü erneut aufgerufen.
+
+    Returns:
+        #? None: Führt die Fehlerausgabe und ggf. die Menü-Funktion aus.
+    '''
+
+    func(e)
+    message_err()
+    if(func_menue != None): func_menue()
+
+def validate_y_n_input(prompt: str) -> bool:
+    '''
+    Validiert eine Ja/Nein-Eingabe (y/n).
+
+    Args:
+        #* prompt (str): Die Eingabeaufforderung für den Benutzer.
+
+    Returns:
+        #? bool: True, wenn "y" eingegeben wurde, sonst False.
+
+    Errors:
+        #! ValueError: Falls eine ungültige Eingabe gemacht wurde.
+    '''
+
+    while True:
+        response = input(prompt).strip().lower()
+        if response in ["y", "n"]:
+            return response == "y"
+        error_ausgabe(ValueError("Ungültige Eingabe! Bitte nur 'y' oder 'n' verwenden."))
+
+
+
+def format_text(text: str, pattern: str) -> str:
+    #! schauen wo man es noch nutzen kann
+    '''
+    Entfernt alle Zeichen aus einem Text, die nicht mit dem angegebenen Regex-Pattern übereinstimmen.
+
+    Args:
+        #* text (str): Der zu filternde Text.
+        #* pattern (str): Ein Regex-Muster, das die erlaubten Zeichen definiert.
+
+    Returns:
+        #? str: Der bereinigte Text, der nur die Zeichen enthält, die mit dem Regex übereinstimmen.
+    '''
+
+    return re.sub(pattern, "", text)
+
+def get_time_of_output() -> str: #! zu global util machen
+    '''
+    Gibt die aktuelle Uhrzeit und das Datum im Format "YYYY-MM-DD HH:MM:SS" zurück.
+
+    Returns:
+        #? str: Der aktuelle Zeitstempel im lesbaren Format.
+    '''
+
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+#*  return datetime.now().timestamp() 
+#*      => so wäre es für den Unix Zeitstempel
+
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #? >>>            Aufgaben               >>>
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-def listData():
+def list_data() -> None:
     '''
-    
+    Listet Dateien und Ordner eines bestimmten Verzeichnisses mit zusätzlichen Informationen auf.
+
+    Returns:
+        #? None: Gibt die Dateien mit Details aus.
+
+    Errors:
+        #! LookupError: Falls das Verzeichnis nicht existiert oder leer ist.
     '''
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #* >>>       Utility Functions           >>>
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    def list_data_ausgabe(d:any, spacer:str="------------------------"):
-        #! anzahl an Spacer Länge über Schleife oder so machen und nur ein Zeichen mitgeben
+    def list_data_ausgabe(d:any, spacer:str= "-" * 25) -> None:
+        '''
+        Gibt die formatierten Datei- und Ordnerinformationen aus.
+
+        Args:
+            #* d (any): Dictionary mit den Dateiinformationen.
+            #* spacer (str, optional): Zeichen zur Trennung der Einträge. Standard: "-" * 25.
+
+        Returns:
+            #? None: Gibt die formatierten Daten aus.
+        '''
+
         print(spacer)
         for key, value in d.items():
             print(f"{key}:")
-            for sub_key, sub_value in value.items(): #! Ausgabe sagt nur die Zahl und nicht byte => If bedingung für Size hinzufügen und print ändern
-                print(f"  {sub_key}: {sub_value}")
+            for sub_key, sub_value in value.items():
+                if sub_key == "Size": print(f"  {sub_key}: {sub_value} byte")
+                else: print(f"  {sub_key}: {sub_value}")
             print(spacer) 
         print() # Zeilenumbruch nach dem Spacern / Ausgabe
 
     def get_ordner(p_path:str, t_sub_dir:list[str]) -> str:
         '''
-        Gibt den vollständigen Pfad zu einem Zielordner zurück, wobei mehrere Unterordner dynamisch kombiniert werden.
+        Erstellt einen vollständigen Pfad aus einem Basisverzeichnis und einer Liste von Unterordnern.
 
         Args:
-            #* p_path (str): Der Perent Ordner Pfad, von dem aus navigiert wird.
-            #* t_sub_dirs (list[str]): Eine Liste von Unterordnern, die kombiniert werden sollen.
+            #* p_path (str): Basisverzeichnis.
+            #* t_sub_dir (list[str]): Liste von Unterordnern.
 
         Returns:
-            #? str: Der vollständige Pfad zum Zielordner.
+            #? str: Der kombinierte Verzeichnispfad.
         '''
 
-        return os.path.join(p_path, *t_sub_dir) # Alle Strings aus den Unterordner Array werden von 0 bis N aneinander Konkateniert
+        return os.path.join(p_path, *t_sub_dir) # Alle Strings aus den Unterordner Array werden von 0 bis n aneinander Konkateniert
         
     
     def get_parent_dir_path(current_path: str) -> str:
         '''
-        Gibt den übergeordneten Ordner des aktuellen Pfades zurück.
+        Gibt das übergeordnete Verzeichnis eines gegebenen Pfads zurück.
 
         Args:
             #* current_path (str): Der aktuelle Pfad.
 
         Returns:
-            #? str: Der übergeordnete Pfad.
+            #? str: Der übergeordnete Verzeichnispfad.
         '''
+
         return os.path.dirname(current_path)
 
-    def get_file_path() -> str: return os.path.dirname(os.path.abspath(__file__))
+    def get_file_path() -> str: 
+        '''
+        Gibt den absoluten Pfad des aktuellen Skripts zurück.
 
-    def get_target_file_path(p_path:str, path:str) -> str: return os.path.join(p_path, path)
+        Returns:
+            #? str: Der vollständige Dateipfad des aktuellen Skripts.
+        '''
+        
+        return os.path.dirname(os.path.abspath(__file__))
 
-    def get_file_extention(fn:str)-> str:
+    def get_target_file_path(p_path:str, path:str) -> str: 
+        '''
+        Erstellt einen vollständigen Dateipfad basierend auf einem Basisverzeichnis und einem relativen Pfad.
+
+        Args:
+            #* p_path (str): Das Basisverzeichnis.
+            #* path (str): Der relative Pfad zur Datei.
+
+        Returns:
+            #? str: Der kombinierte absolute Dateipfad.
+        '''
+
+        return os.path.join(p_path, path)
+
+    def get_file_extention(fn:str) -> str:
+        '''
+        Extrahiert die Dateiendung aus einem Dateinamen.
+
+        Args:
+            #* fn (str): Der Dateiname.
+
+        Returns:
+            #? str: Die Dateiendung (z.B. ".txt"), falls vorhanden, sonst ein leerer String.
+        '''
+
         match:any = re.search(r'\.([^\s.]+)$', fn)
         if match:
             return f".{match.group(1)}"
         return ""
 
     def list_items(base_path:str, items:list[str]) -> dict:
+        '''
+        Erstellt ein Dictionary mit Informationen über Dateien und Ordner in einem Verzeichnis.
+
+        Args:
+            #* base_path (str): Der Basisverzeichnispfad.
+            #* items (list[str]): Liste der Dateinamen.
+
+        Returns:
+            #? dict: Ein Dictionary mit Pfad, Größe und Erweiterung jeder Datei.
+        '''
+
         dic:dict[str, dict[str, any]] = {
             item: {
-                "Path": get_target_file_path(base_path, item), #! Überflüssig Kompliziert braucht keinen Aufruf der Funktion
+                "Path": get_target_file_path(base_path, item),
                 "Size": os.stat(get_target_file_path(base_path, item)).st_size,
                 "Extention" : get_file_extention(item).strip()
             }
@@ -133,81 +275,105 @@ def listData():
     try:
         path:str = get_ordner(  get_parent_dir_path(  get_file_path()  ),["Utils","Files"]  ) 
         #! Die Liste mit Inputs lösen und dann ggf mit cwd arbeiten statt relationaler Filepath
+        #? Erweiterbar mit von CWD alle Subordner auflisten die man dann mit einem index auswählen kann 
+            #? => dann automatisch übergeben werden im array
 
         if not os.path.exists(path):
-            raise LookupError("Error: Angegebender Ordner gibt es nicht!")
+            raise LookupError("Angegebender Ordner gibt es nicht!")
         else:
             items:list[str] = os.listdir(path)
             if not items:
                 raise LookupError("Error: Ordner ist Leer!")
-            result:dict[str, dict[str, any]] = list_items(path, items) #! muss debuggt werden ob type richtig ist
+            result:dict[str, dict[str, any]] = list_items(path, items)
             list_data_ausgabe(result)
             
     except LookupError as e:
-        error_Ausgabe(e)
+        error_ausgabe(e)
 
 #? ==============================================================================================================
 
 
-def vocalCounter():
+def vocal_counter() -> None:
     '''
-    
+    Zählt bestimmte Zeichen (Vokale und Sonderzeichen) in einem eingegebenen Text.
+
+    Returns:
+        #? None: Gibt die Zeichenanzahl formatiert aus.
+
+    Errors:
+        #! ValueError: Falls eine ungültige oder leere Eingabe gemacht wurde.
     '''
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #* >>>         Counter Logik             >>>
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    def VocalCounter(w:str):
-        result:str = formated_text(w)
-        zeichen:str = "aeiouAEIOU.,!?;:()\\-_[]"
+    def count_characters(w: str) -> dict[str, int]:
+        '''
+        Zählt die Häufigkeit bestimmter Zeichen im eingegebenen Text.
 
-        counter:dict[str,int] = {b: 0 for b in zeichen} #! Checken ob Typisierung richtig ist
+        Args:
+            #* w (str): Der zu analysierende Text.  
+
+        Returns:
+            #? dict[str, int]: Ein Dictionary mit Zeichen als Schlüssel und deren Häufigkeit als Wert.
+        '''
+        
+        #* r bei rf"" ist raw text
+        zeichen: str = r"aeiouAEIOU.,!?;:()\-_[]"
+        result: str = format_text(w, rf"[^{zeichen}]")
+
+        counter: dict[str, int] = {b: 0 for b in zeichen}
 
         for char in result:
-            if char in counter: counter[char] += 1
+            if char in counter:
+                counter[char] += 1
+
+        return counter 
+
+
+    def print_character_counts(counter: dict[str, int]) -> None: #! Name ändern
+        '''
+        Gibt die Häufigkeit der gezählten Zeichen aus.
+
+        Args:
+            #* counter (dict[str, int]): Dictionary mit Zeichen und deren Häufigkeit.
+
+        Returns:
+            #? None: Gibt die Häufigkeiten formatiert in der Konsole aus.
+        '''
 
         for buchstabe, count in counter.items():
-            if count > 0: vocal_ausgabe(buchstabe, count) 
-                
-
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#* >>>         Util Functions            >>>
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-    def vocal_ausgabe(c:str,v:int):
-        #! Nur eine Benutzung und daher eigentlich obsolete
-        print(f"Zeichen [{c}] : {v} mal")
-
-    def formated_text(t:str):
-        regex = r"[^aeiouAEIOU.,!?;:()\-_]]"
-        result = re.sub(regex, "", t)
-        return result
-    
-    def message():
-        #! Nur eine Benutzung und daher eigentlich obsolete
-        print("Wilkommen zum Vokale Zähler")
-        print("Gebe dafür Text ein um es zählen zu lassen:")
-    
-
+            if count > 0:
+                print(f"Zeichen [{buchstabe}] : {count} mal")
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #* >>>           Main Logik              >>>
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    message()
-    while(True):
-        inp = input().strip()  
-        if inp == "": message_err() #! Sollte ich noch nen error werfen und catchen
-        else: 
-            VocalCounter(inp)
+    while True:
+        try:
+            inp:str = input("Gebe dafür Text ein, um es zählen zu lassen: ").strip()
+            if not inp:
+                raise ValueError("Eingabe darf nicht leer sein!")
+            counter_result: dict[str,int] = count_characters(inp)
+            print_character_counts(counter_result)
             break
+        except ValueError as e:
+            error_ausgabe(str(e))
             
 
 #? ==============================================================================================================
 
-def rechner():
+def rechner() -> None:
     '''
-    
+    Führt Grundrechenarten (Addition, Subtraktion, Multiplikation, Division) basierend auf Benutzereingaben aus.
+
+    Returns:
+        #? None: Gibt das berechnete Ergebnis aus.
+
+    Errors:
+        #! ValueError: Falls eine ungültige Rechenart oder eine ungültige Zahl eingegeben wurde.
+        #! ZeroDivisionError: Falls eine Division durch 0 erfolgt.
     '''
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #* >>>           Varriabeln              >>>
@@ -225,9 +391,19 @@ def rechner():
 #* >>>             Utils                 >>>
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    def massage():
-        #! Nur eine Benutzung und daher eigentlich obsolete 
-        #! aber alles an einem Ort gebündelt
+    def rechner_message() -> None:
+        '''
+        Gibt eine Übersicht über die verfügbaren Rechenoperationen aus.
+
+        Returns:
+            #? None: Gibt die Informationen in der Konsole aus.
+
+        Info:
+            -> Nur eine Benutzung und daher eigentlich obsolete 
+            -> Aber alles an einem Ort gebündelt an Ausgaben
+        '''
+
+
         print("Was möchtest du berechnen?")
         print("1. Additives rechnen")
         print("2. Substraktives rechnen")
@@ -235,31 +411,44 @@ def rechner():
         print("4. Divisionelles rechnen")
         print("Gebe dafür die gültige Nummer ein (1, 2, 3, 4):")
 
-    def Eingabe()-> list[float]:
+    def rechner_number_eingabe()-> list[float]:
+        '''
+        Fragt den Benutzer nach zwei Zahlen für eine Berechnung.
+
+        Returns:
+            #? list[float]: Eine Liste mit zwei Zahlen.
+
+        Errors:
+            #! ValueError: Falls eine ungültige Zahl eingegeben wurde.
+        '''
+
         try:
             print("Erste Zahl:")
             eingabe_1 = float(input().strip()) 
             print("Zweite Zahl:")
             eingabe_2 = float(input().strip())
             return [eingabe_1, eingabe_2]
-        except ValueError: #! WAS IST HIER PASSIERT???
-            raise ValueError("Error: Bitte gültige Zahlen eingeben")
+        except ValueError:
+            raise ValueError("Bitte gültige Zahlen eingeben") #? Eigene Fehlernachicht werfen und nicht die generische des ValueErrors
                 
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #* >>>     Rechnenlogik Switch Case      >>>
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    def case_plus(a, b): return f"(Addieren) Ergebnis von {a} {options["plus"]['symbol']} {b} = {a + b}"
+#! ------------------------------------------------------------------------------------
+#? Version ohne Lambda
 
-    def case_minus(a, b): return f"(Subtrahieren) Ergebnis von {a} {options["minus"]['symbol']} {b} = {a - b}"
+    def case_plus(a, b) -> str: return f"(Addieren) Ergebnis von {a} {options["plus"]['symbol']} {b} = {a + b}"
 
-    def case_mal(a, b): return f"(Multiplizieren) Ergebnis von {a} {options["mal"]['symbol']} {b} = {a * b}"
+    def case_minus(a, b) -> str: return f"(Subtrahieren) Ergebnis von {a} {options["minus"]['symbol']} {b} = {a - b}"
 
-    def case_geteilt(a, b):
+    def case_mal(a, b) -> str: return f"(Multiplizieren) Ergebnis von {a} {options["mal"]['symbol']} {b} = {a * b}"
+
+    def case_geteilt(a, b) -> str:
         if b == 0:
-            return "Error: Division durch 0 nicht erlaubt" #! Error werfen und Catchen wenn geteilt wird durch 0
-        return f"(Dividieren) Ergebnis von {a} {options["geteilt"]['symbol']} {b} = {a / b}"
+            raise ZeroDivisionError("Division durch 0 nicht erlaubt")
+        return f"(Dividieren) Ergebnis von {a} {options['geteilt']['symbol']} {b} = {a / b}"
 
     switch = {
         "1": case_plus,
@@ -268,9 +457,9 @@ def rechner():
         "4": case_geteilt
     }
 
-    '''LambdaSwitch
-    # Switch-Case mit Lambda-Funktionen
-    #! kann ich mir bei Gelegenheit nochmal anschauen
+#! ------------------------------------------------------------------------------------
+#? Version mit Lambda
+    '''# LambdaSwitch
 switch = {
     "1": lambda a, b: f"(Addieren) Ergebnis von {a} {options['plus']['symbol']} {b} = {a + b}",
     "2": lambda a, b: f"(Subtrahieren) Ergebnis von {a} {options['minus']['symbol']} {b} = {a - b}",
@@ -278,111 +467,142 @@ switch = {
     "4": lambda a, b: f"(Dividieren) Ergebnis von {a} {options['geteilt']['symbol']} {b} = {a / b}" if b != 0 else "Error: Division durch 0 nicht erlaubt",
 }
     '''
-
+#! ------------------------------------------------------------------------------------
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #* >>>           Main Logik              >>>
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    massage() #! Typo
+    rechner_message()
     rechnenart:str = input().strip()
     try:
         if rechnenart not in switch:
             raise ValueError("Error: Ungültige Rechenart. Bitte eine gültige Nummer (1-4) eingeben.")
         while True: 
             try:
-                eingabe:list[float] = Eingabe()
-                result:str = switch[rechnenart](eingabe[0], eingabe[1])
-                ausgabe(result)
+                eingabe: list[float] = rechner_number_eingabe()
+                result: str = switch[rechnenart](eingabe[0], eingabe[1])
+                print(result)
                 break
             except ValueError as e:
-                error_Ausgabe(e)
+                error_ausgabe(e)
                 continue
-    
+            except ZeroDivisionError as e:
+                error_ausgabe(e)
+                continue
     except ValueError as e:
-        error_Ausgabe(e)
+        error_ausgabe(e)
         
 
 #? ==============================================================================================================
 
-def passwortGen():
+def passwort_gen() -> None:
     '''
-    
+    Generiert ein zufälliges Passwort basierend auf Benutzerpräferenzen.
+
+    Returns:
+        #? None: Gibt das generierte Passwort und die Erstellungszeit aus.
+
+    Errors:
+        #! ValueError: Falls eine ungültige Passwortlänge eingegeben wurde.
     '''
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #* >>>              Utils                >>>
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    def pGen(length:int, charset:list[str]) -> str:
+    def p_gen(length:int, charset:list[str]) -> str:
         '''
-        Generiert ein zufälliges Passwort aus dem übergebenen Charset.
+        Erstellt ein zufälliges Passwort aus einer Zeichenliste.
 
         Args:
-            #* length (int): Die Länge des generierten Passworts.
-            #* charset (list[str]): Eine Liste von Zeichen, aus der das Passwort generiert wird.
+            #* length (int): Die gewünschte Passwortlänge.
+            #* charset (list[str]): Die Zeichenliste, aus der das Passwort generiert wird.
 
         Returns:
             #? str: Das generierte Passwort.
         '''
+
         return ''.join(random.choices(population=charset, weights=None, k=length))
+        #* r.choises gibt eine liste zurück -> mit join auf ein leeren string wird alles aus dem Array konkateniert
 
 
     def generate_charset(letters: bool = True, numbers: bool = True, special: bool = True) -> list[str]:
         '''
-        Generiert ein Array von Zeichen basierend auf den übergebenen Parametern.
+        Erstellt eine Zeichenliste für die Passwortgenerierung basierend auf Benutzerpräferenzen.
 
         Args:
-            #* letters (bool): Ob Buchstaben (a-z, A-Z) enthalten sein sollen. Standard: True.
-            #* numbers (bool): Ob Zahlen (0-9) enthalten sein sollen. Standard: True.
-            #* special (bool): Ob Sonderzeichen enthalten sein sollen. Standard: True.
+            #* letters (bool): Ob Buchstaben enthalten sein sollen.
+            #* numbers (bool): Ob Zahlen enthalten sein sollen.
+            #* special (bool): Ob Sonderzeichen enthalten sein sollen.
 
         Returns:
-            #? charset_array (list[str]): Ein Array von Zeichen basierend auf den ausgewählten Kategorien.
+            #? list[str]: Eine Liste mit Zeichen basierend auf den aktivierten Kategorien.
         '''
 
-        charset_array = [] #! brauche ich ein arry mit dem extend? => nur ein Element in dem Array
+        charset_array = []
 
-        # Buchstaben hinzufügen
+        #* Buchstaben hinzufügen
         if letters: charset_array.extend(string.ascii_lowercase + string.ascii_uppercase)
 
-        # Zahlen hinzufügen
+        #* Zahlen hinzufügen
         if numbers: charset_array.extend(string.digits)
 
-        # Sonderzeichen hinzufügen
+        #* Sonderzeichen hinzufügen
         if special: charset_array.extend("!@#$%^&*()_+-=[]{}|;:,.<>?/`~")
 
         return charset_array
-
-    def password_ausgabe(d:str):
-        '''
-        Generiert eine Ausgabe von Text nach vorgefertigter Formatierung
-        #! Nur eine Benutzung und daher eigentlich obsolete
-
-        Args:
-            #* d (str): Ist der auszugebende Text
-        '''
-        print(f"Dein generiertes Passwort ist: \"{d}\"")
-
+    
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #* >>>           Main Logik              >>>
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    length:str = input("Gebe die Länge deines Passwortes ein: ")
+    def get_valid_input(prompt: str, validation_type: str) -> str:
+        '''
+        Fragt den Benutzer nach einer Eingabe und validiert diese mit der `validate()`-Funktion.
 
-    letters:bool = input("Möchtest du Buchstaben benutzen? (y/n): ") == "y"  #! Nicht optimiert auf andere Eingabe als y oder irgendwas anderes
-    numbers:bool = input("Möchtest du Zahlen benutzen? (y/n): ") == "y"  #! Nicht optimiert auf andere Eingabe als y oder irgendwas anderes
-    special:bool = input("Möchtest du Sonderzeichen benutzen? (y/n): ") == "y"  #! Nicht optimiert auf andere Eingabe als y oder irgendwas anderes  
+        Args:
+            #* prompt (str): Die Eingabeaufforderung für den Benutzer.
+            #* validation_type (str): Der Validierungstyp ("num" für Zahlen, "text" für Buchstaben).
+
+        Returns:
+            #? str: Die validierte Eingabe.
+        '''
+
+        while True:
+            user_input = input(prompt).strip()
+            if validate(user_input, validation_type):
+                return user_input
+            error_ausgabe(ValueError(f"Ungültige Eingabe! Bitte eine gültige {validation_type}-Eingabe machen."))
+
+    prompts = {
+        "length": "Gebe die Länge deines Passwortes ein: ",
+        "letters": "Möchtest du Buchstaben benutzen? (y/n): ",
+        "numbers": "Möchtest du Zahlen benutzen? (y/n): ",
+        "special": "Möchtest du Sonderzeichen benutzen? (y/n): "
+    }
+
+    selections = {
+        key: (int(get_valid_input(prompt, "num")) if key == "length" else validate_y_n_input(prompt))
+        for key, prompt in prompts.items()
+    }
+    # => {'length':int,'letters': bool, 'numbers': bool, 'special': bool}
+
+    length: int = selections["length"]
+    letters: bool = selections["letters"]
+    numbers: bool = selections["numbers"]
+    special: bool = selections["special"]
 
     try:
         valid_input:bool = validate(length, "num")
         
         if valid_input:
-            pw:str = pGen(length=int(length), charset=generate_charset(letters=letters, numbers=numbers, special=special))
-            password_ausgabe(pw)
+            pw: str = p_gen(length=length, charset=generate_charset(letters=letters, numbers=numbers, special=special))
+            print(f"Dein generiertes Passwort ist: \"{pw}\"")
+            print(f"Zeit des Erstellens von dem Passwort: {get_time_of_output()}")
     except ValueError as e:
-        error_Ausgabe(e)
+        error_ausgabe(e)
     except Exception as e:
-        error_Ausgabe(f"Ein unerwarteter Fehler ist aufgetreten: {e}")
+        error_ausgabe(f"Ein unerwarteter Fehler ist aufgetreten: {e}")
 
 #? ==============================================================================================================
 
@@ -394,12 +614,12 @@ functions = {
     "1" : {
             "name": "ListFiles von Ordner",
             "desc" :"Liste deine Files Aus von einem Ordner mit Zusatz Infos auf.",
-            "func": listData
+            "func": list_data
            },
     "2" : {
             "name": "Vokalezähler",
             "desc" :"Zähle die Vokale von einem eingegebenem Wort",
-            "func": vocalCounter
+            "func": vocal_counter
            },
     "3" : {
             "name": "Rechner",
@@ -409,34 +629,31 @@ functions = {
     "4" : {
             "name": "Passwort Generator",
             "desc" :"Erstelle ein Passwort auf Grundlage verschiedener Vorgaben",
-            "func": passwortGen
+            "func": passwort_gen
            },
+    "5": {
+            "name": "Code Beenden", 
+            "func": lambda: (print("Okay Bye"), exit()) #! zu nicht Lambda ändern
+        }
 }
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #? >>>             Utils                 >>>
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-def error_Ausgabe_Wrapper(func:any,e:any):
-    '''
-    Wrapped die Error-Ausgaben-Funktion und erweitert das mit weiterer Funktionalität. 
-    => Middleware
 
-    Args:
-        #* func (any): Error-Ausgaben-Funktion / Möglichkeit für handling mehrerer Error-Ausgaben-Funktionen.
-        #* e (any): Der Error, der geworfen wurde, mit dem angehangenen Text.
+def auswahl() -> None:
     '''
-    func(e)
-    message_err()
-    auswahl()
+    Zeigt das Hauptmenü an und listet alle verfügbaren Funktionen zur Auswahl.
 
-def auswahl():
+    Returns:
+        #? None: Gibt das Menü in der Konsole aus.
+    '''
+
     anzahl:int = len(functions.keys())
     print("Welche Funktion möchtest du benutzen?")
 
-    for (k,v) in functions.items():
-        name = v["name"]
-        print(f"{k}. {name}")
+    for (k,v) in functions.items(): print(f"{k}. {v["name"]}")
 
     print(f"Gebe dafür eine Zahl zwischen 1 und {anzahl} ein:")
 
@@ -444,22 +661,39 @@ def auswahl():
 #? >>>           Main Logik              >>>
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-def Main():
+def Main() -> None:
+    '''
+    Hauptmenü der Anwendung. Bietet verschiedene Funktionen zur Auswahl.
+
+    Returns:
+        #? None: Führt die gewählte Funktion aus.
+
+    Errors:
+        #! ValueError: Falls eine ungültige Auswahl getroffen wurde.
+    '''
+
     while True:
         auswahl()
-        inp:str = input().strip()
+        inp: str = input().strip()
         try:
-            if(validate(inp,"num") ): #! muss eigentlich nicht als int gecasted werden
+            if validate(inp, "num"):
                 functions[inp]["func"]()
-                repeat:bool = input("Möchtest du noch eine Function laufen lassen? (y/n): ") == "y"
-                if not repeat: break 
+                while True:
+                    try:
+                        repeat: bool = validate_y_n_input("Möchtest du noch eine Funktion laufen lassen? (y/n): ")
+                        break 
+                    except ValueError as e:
+                        error_ausgabe(e)
+                if not repeat:
+                    return
             else:
                 raise ValueError(f"Ungültige Auswahl: {inp}. Bitte wähle eine gültige Nummer.")
         except ValueError as e:
-            error_Ausgabe_Wrapper(error_Ausgabe,e)
+            error_ausgabe_wrapper(error_ausgabe, e, auswahl)
         except Exception as e:
-            error_Ausgabe_Wrapper(error_Ausgabe,e)
+            error_ausgabe_wrapper(error_ausgabe, e, auswahl)
 
 
+#? ==============================================================================================================
 
 if __name__ == "__main__": Main()
