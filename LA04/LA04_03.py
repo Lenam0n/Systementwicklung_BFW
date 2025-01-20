@@ -83,8 +83,8 @@ def error_ausgabe_wrapper(func:any, e:any, func_menue:any = None) -> None:
     Returns:
         #? None: Führt die Fehlerausgabe und ggf. die Menü-Funktion aus.
     '''
-
-    func(e)
+    
+    func(e) #! muss ich noch auf exsistenz validieren mit None aus dem Parameter
     message_err()
     if(func_menue != None): func_menue()
 
@@ -125,7 +125,7 @@ def format_text(text: str, pattern: str) -> str:
 
     return re.sub(pattern, "", text)
 
-def get_time_of_output() -> str: #! zu global util machen
+def get_time_of_output() -> str:
     '''
     Gibt die aktuelle Uhrzeit und das Datum im Format "YYYY-MM-DD HH:MM:SS" zurück.
 
@@ -283,7 +283,7 @@ def list_data() -> None:
         else:
             items:list[str] = os.listdir(path)
             if not items:
-                raise LookupError("Error: Ordner ist Leer!")
+                raise LookupError("Ordner ist Leer!")
             result:dict[str, dict[str, any]] = list_items(path, items)
             list_data_ausgabe(result)
             
@@ -359,7 +359,7 @@ def vocal_counter() -> None:
             print_character_counts(counter_result)
             break
         except ValueError as e:
-            error_ausgabe(str(e))
+            error_ausgabe(str(e)) #! Warum String cast
             
 
 #? ==============================================================================================================
@@ -402,7 +402,6 @@ def rechner() -> None:
             -> Nur eine Benutzung und daher eigentlich obsolete 
             -> Aber alles an einem Ort gebündelt an Ausgaben
         '''
-
 
         print("Was möchtest du berechnen?")
         print("1. Additives rechnen")
@@ -542,7 +541,7 @@ def passwort_gen() -> None:
         charset_array = []
 
         #* Buchstaben hinzufügen
-        if letters: charset_array.extend(string.ascii_lowercase + string.ascii_uppercase)
+        if letters: charset_array.extend(string.ascii_letters) # Letters hat lower und upper mit drinne
 
         #* Zahlen hinzufügen
         if numbers: charset_array.extend(string.digits)
