@@ -1,0 +1,8 @@
+# VSCode Config Files
+/.vscode
+
+# Outputs von der File Erstellfunktion
+/LA06/out/*
+
+# Pycache
+/Utils/__pycache__

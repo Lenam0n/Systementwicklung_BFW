@@ -1,0 +1,12 @@
+# Liste von Ordnern, die komplett ignoriert werden sollen (inkl. Unterordner)
+[folders]
+.git
+.vscode
+node_modules
+__pycache__
+
+# Liste von einzelnen Dateien, die ignoriert werden sollen
+[files]
+.DS_Store
+thumbs.db
+secrets.env

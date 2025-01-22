@@ -1,13 +1,11 @@
-from typing import Any
 import re
 
-
-def validate(d: Any, type: str) -> bool:
+def validate(d: any, type: str) -> bool:
     '''
     Validiert eine Eingabe basierend auf Typ.
     
     Args:
-        #* d (Any): Daten die zu prüfende Eingabe.
+        #* d (any): Daten die zu prüfende Eingabe.
         #* type (str): Der Typ der Validierung (z.B. "num", "text").
         
     Returns:
