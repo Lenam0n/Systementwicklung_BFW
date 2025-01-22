@@ -273,7 +273,7 @@ def list_data() -> None:
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     try:
-        path:str = get_ordner(  get_parent_dir_path(  get_file_path()  ),["Utils","Files"]  ) 
+        path:str = get_ordner(  get_parent_dir_path(  get_file_path()  ),["Utils","Mokdata"]  ) 
         #! Die Liste mit Inputs lösen und dann ggf mit cwd arbeiten statt relationaler Filepath
         #? Erweiterbar mit von CWD alle Subordner auflisten die man dann mit einem index auswählen kann 
             #? => dann automatisch übergeben werden im array
