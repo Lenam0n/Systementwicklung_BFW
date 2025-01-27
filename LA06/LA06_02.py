@@ -56,7 +56,6 @@ def createFile(name: str = "name.txt", content: str = "", p: str = "") -> bool:
             case _:
                 print(f"Datei bleibt unverändert: {file_path}")
                 return False
-    print("UwU")
     # Datei erstellen, wenn sie nicht existiert
     try:
         validate_path(path=file_path, should_exist=False)  # Prüft, dass die Datei nicht existiert.
@@ -69,6 +68,7 @@ def createFile(name: str = "name.txt", content: str = "", p: str = "") -> bool:
     return True
 
 def Main() -> None:
-    createFile(content="Hallo, Welt!", p=Path.cwd()/"LA06"/"out")
+    filename = "test"
+    createFile(content="Hallo, Welt!", p=Path.cwd()/"LA06"/"out"/filename)
 
 if __name__ == "__main__": Main()

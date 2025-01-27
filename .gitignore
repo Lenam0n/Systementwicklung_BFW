@@ -6,3 +6,7 @@
 
 # Pycache
 /Utils/__pycache__
+/Utils/UtilFunctions/__pycache__
+/Utils/UtilFunctions/osUtils/__pycache__
+
+**/__pycache__
