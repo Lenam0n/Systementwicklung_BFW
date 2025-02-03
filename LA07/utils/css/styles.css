@@ -2,7 +2,7 @@
   --main-nav-height: 100px;
   --main-color: #999;
   --accent-color: #444;
-  --main-background-color: #454545;
+  --main-background-color: rgb(237, 165, 255);
   --accent-background-color: #656565;
   --sidebar-background-color: cyan;
   --main-nav-background-color: grey;
@@ -18,12 +18,7 @@
 body {
   position: relative;
   font-family: "Courier New", Courier, monospace;
-}
-
-h1 {
-}
-
-img {
+  height: 100vh;
 }
 
 footer {
@@ -45,6 +40,7 @@ main {
   height: var(--main-nav-height);
   width: 100%;
   background-color: var(--main-nav-background-color);
+  z-index: 1;
 }
 
 #main-navbar > a {
@@ -80,12 +76,14 @@ main {
   display: flex;
   flex-direction: column;
   gap: 2em;
-  position: absolute;
+  position: fixed;
   width: 10vw;
-  height: 100vh;
+  height: calc(100vh - 100px);
   background-color: var(--sidebar-background-color);
   top: var(--main-nav-height);
+  border-right: solid 2px gray;
 }
+
 #sidebar-navbar > img {
   aspect-ratio: 1;
   width: 85%;
@@ -93,8 +91,8 @@ main {
   margin-top: 2em;
 }
 .sidebar-element > button {
-  width: 85%;
-  margin-inline: 7.5%;
+  width: 75%;
+  margin-inline: 12.5%;
   height: 2em;
 }
 
@@ -106,6 +104,7 @@ main {
   align-items: center;
   justify-content: center;
   gap: 2em;
+  border-bottom: solid 2px gray;
 }
 #hero > .hero-img {
   aspect-ratio: 1, 1;
@@ -114,6 +113,11 @@ main {
 }
 #hero-text > * {
   text-align: center;
+}
+
+section#main-content {
+  overflow: scroll;
+  height: calc(100vw - 100px - 300px + 1px);
 }
 
 table {

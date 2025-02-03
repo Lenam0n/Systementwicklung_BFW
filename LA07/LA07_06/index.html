@@ -6,43 +6,58 @@
     <title>LA07_05</title>
     <link rel="stylesheet" href="../utils/css/styles.css" />
   </head>
-  <body>
-    <nav id="main-navbar">
-      <a href="#"
-        ><img id="main-logo" src="../utils/assets/logo.jpg" alt="logo"
-      /></a>
-      <div>
-        <a class="navbar-element" href="http://">Subpage - 1</a>
-        <a class="navbar-element" href="http://">Subpage - 2</a>
-        <a class="navbar-element" href="http://">Subpage - 3</a>
-      </div>
-    </nav>
 
-    <nav id="sidebar-navbar">
-      <img src="../utils/assets/logo.jpg" alt="logo" />
-      <div class="sidebar-element">
-        <button type="submit">Start</button>
-      </div>
-      <div class="sidebar-element">
-        <button type="submit">Funktionen</button>
-      </div>
-      <div class="sidebar-element">
-        <button type="submit">Einstellungen</button>
-      </div>
-    </nav>
+  <body>
+    <header>
+      <nav id="main-navbar">
+        <a href="#">
+          <img
+            id="main-logo"
+            src="https://picsum.photos/id/684/400/400"
+            alt="logo"
+          />
+        </a>
+
+        <div>
+          <a class="navbar-element" href="#">Subpage - 1</a>
+          <a class="navbar-element" href="#">Subpage - 2</a>
+          <a class="navbar-element" href="#">Subpage - 3</a>
+        </div>
+      </nav>
+    </header>
+
+    <aside>
+      <nav id="sidebar-navbar">
+        <img src="https://picsum.photos/id/684/400/400" alt="logo" />
+
+        <div class="sidebar-element">
+          <button type="submit">Start</button>
+        </div>
+
+        <div class="sidebar-element">
+          <button type="submit">Funktionen</button>
+        </div>
+
+        <div class="sidebar-element">
+          <button type="submit">Einstellungen</button>
+        </div>
+      </nav>
+    </aside>
+
     <main>
       <section id="hero">
         <div id="hero-text">
           <h1>Title:</h1>
           <blockquote>Lorem, ipsum dolor.</blockquote>
         </div>
+
         <img
           class="hero-img"
           src="https://picsum.photos/id/684/600/400"
           alt="image"
         />
       </section>
-      <section id="main">
+      <section id="main-content">
         <table>
           <thead>
             <tr>
@@ -52,6 +67,7 @@
               <th>Controls</th>
             </tr>
           </thead>
+
           <tbody>
             <tr>
               <td>
@@ -61,15 +77,19 @@
                   alt="file1"
                 />
               </td>
+
               <td class="file-header">Test.txt</td>
+
               <td class="file-content">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Numquam, perspiciatis?
               </td>
+
               <td class="file-controls">
                 <button class="file-control button b-style-1" type="button">
                   Daten aktualisieren
                 </button>
+
                 <button class="file-control button b-style-2" type="button">
                   Daten Kopieren
                 </button>
@@ -78,6 +98,7 @@
           </tbody>
         </table>
       </section>
+
       <footer></footer>
     </main>
   </body>
