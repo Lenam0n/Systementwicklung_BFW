@@ -3,6 +3,7 @@
 
 # Outputs von der File Erstellfunktion
 /LA06/out/*
+/LA08/LA08_5/out/*
 
 # Pycache
 /Utils/__pycache__
