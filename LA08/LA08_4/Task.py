@@ -8,7 +8,10 @@ class Task:
         self._pid = pid
         self._name = name
         self._status = status
-        self._memory_usage = memory_usage
+        self._memory_usage = round(memory_usage, 6)
+
+    def _format_memory_usage(self):
+        return f"{round(self._memory_usage, 6)}%"
 
     def get_pid(self) -> int:
         return self._pid
@@ -21,4 +24,6 @@ class Task:
 
     def get_memory_usage(self) -> float:
         return self._memory_usage
-    
+
+    def get_formated_memory_usage(self) -> str:
+        return self._format_memory_usage()

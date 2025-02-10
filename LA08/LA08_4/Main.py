@@ -7,4 +7,5 @@ Jeder Prozess soll ein Objekt der Klasse Process sein, das unter anderem die Att
 from Taskmanager import Taskmanager
 
 Tm = Taskmanager()
-Tm.ausgabe()
+# Tm.ausgabe()
+print(Tm.test())
