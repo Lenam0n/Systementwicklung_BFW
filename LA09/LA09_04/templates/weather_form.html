@@ -1,0 +1,62 @@
+{# templates/weather/weather_form.html #}
+<!--  -->
+{% extends "base.html" %}
+<!--  -->
+{% block title %}Wetter Suche{% endblock %}
+<!--  -->
+{% block css %}{{ super() }}{% endblock %}
+<!--  -->
+
+{% block content %}
+<div class="card" style="max-width: 500px; margin: 20px auto">
+  <div class="card-header">Stadtnamen eingeben</div>
+  <div class="card-body">
+    <form method="POST" action="/weather">
+      <div class="form-group">
+        <label for="cityname">Stadtname:</label>
+        <input
+          type="text"
+          id="cityname"
+          name="cityname"
+          class="form-control"
+          required
+        />
+      </div>
+      <div
+        class="form-dropdown"
+        id="form-dropdown"
+        style="
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        "
+      >
+        <div>
+          <label for="units">Einheitensystem:</label>
+          <select name="units" id="units">
+            <option value="metric">Metric</option>
+            <option value="imperial">Imperial</option>
+            <option value="standard">Standard</option>
+          </select>
+        </div>
+        <div>
+          <label for="language">Sprache:</label>
+          <select
+            name="language"
+            id="language-select"
+            style="width: 100%; max-width: 150px"
+          >
+            <option value="de" selected="selected">German</option>
+            {% for label, name in language.items() %}
+            <option value="{{label}}">{{name.capitalize()}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-top: 1em">
+        Abschicken
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

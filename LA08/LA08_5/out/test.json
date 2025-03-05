@@ -1,0 +1,806 @@
+{
+    "System Idle Process": {
+        "name": "System Idle Process",
+        "pid": 0,
+        "status": "running",
+        "memory_usage": 2.4073495418573086e-05
+    },
+    "System": {
+        "name": "System",
+        "pid": 4,
+        "status": "running",
+        "memory_usage": 0.0003249921881507367
+    },
+    "": {
+        "name": "",
+        "pid": 188,
+        "status": "stopped",
+        "memory_usage": 0.33427252063459656
+    },
+    "Registry": {
+        "name": "Registry",
+        "pid": 232,
+        "status": "running",
+        "memory_usage": 0.13706244616564586
+    },
+    "Code.exe": {
+        "name": "Code.exe",
+        "pid": 28612,
+        "status": "running",
+        "memory_usage": 0.037891681788834036
+    },
+    "smss.exe": {
+        "name": "smss.exe",
+        "pid": 692,
+        "status": "running",
+        "memory_usage": 0.0019860633720322797
+    },
+    "svchost.exe": {
+        "name": "svchost.exe",
+        "pid": 38308,
+        "status": "running",
+        "memory_usage": 0.02720304982298759
+    },
+    "csrss.exe": {
+        "name": "csrss.exe",
+        "pid": 1176,
+        "status": "running",
+        "memory_usage": 0.01041178676853286
+    },
+    "wininit.exe": {
+        "name": "wininit.exe",
+        "pid": 1164,
+        "status": "running",
+        "memory_usage": 0.004116567716575998
+    },
+    "winlogon.exe": {
+        "name": "winlogon.exe",
+        "pid": 1268,
+        "status": "running",
+        "memory_usage": 0.015792212994583943
+    },
+    "DDVCollectorSvcApi.exe": {
+        "name": "DDVCollectorSvcApi.exe",
+        "pid": 1296,
+        "status": "running",
+        "memory_usage": 0.006572064249270452
+    },
+    "services.exe": {
+        "name": "services.exe",
+        "pid": 1308,
+        "status": "running",
+        "memory_usage": 0.022689269432005135
+    },
+    "LsaIso.exe": {
+        "name": "LsaIso.exe",
+        "pid": 1324,
+        "status": "running",
+        "memory_usage": 0.004020273734901705
+    },
+    "lsass.exe": {
+        "name": "lsass.exe",
+        "pid": 1340,
+        "status": "running",
+        "memory_usage": 0.060617061463967024
+    },
+    "fontdrvhost.exe": {
+        "name": "fontdrvhost.exe",
+        "pid": 1512,
+        "status": "running",
+        "memory_usage": 0.007197975130153353
+    },
+    "WUDFHost.exe": {
+        "name": "WUDFHost.exe",
+        "pid": 5844,
+        "status": "running",
+        "memory_usage": 0.006885019689711903
+    },
+    "WUDFCompanionHost.exe": {
+        "name": "WUDFCompanionHost.exe",
+        "pid": 7180,
+        "status": "running",
+        "memory_usage": 0.0028045622162637647
+    },
+    "Notion.exe": {
+        "name": "Notion.exe",
+        "pid": 37236,
+        "status": "running",
+        "memory_usage": 0.7005387166804768
+    },
+    "WidgetService.exe": {
+        "name": "WidgetService.exe",
+        "pid": 1964,
+        "status": "running",
+        "memory_usage": 0.02929744392440345
+    },
+    "cmd.exe": {
+        "name": "cmd.exe",
+        "pid": 1980,
+        "status": "running",
+        "memory_usage": 0.0029490031887752033
+    },
+    "Discord.exe": {
+        "name": "Discord.exe",
+        "pid": 35376,
+        "status": "running",
+        "memory_usage": 0.13652079251872798
+    },
+    "crashpad_handler.exe": {
+        "name": "crashpad_handler.exe",
+        "pid": 2104,
+        "status": "running",
+        "memory_usage": 0.01504593463660818
+    },
+    "IntelCpHDCPSvc.exe": {
+        "name": "IntelCpHDCPSvc.exe",
+        "pid": 2124,
+        "status": "running",
+        "memory_usage": 0.005332279235213939
+    },
+    "conhost.exe": {
+        "name": "conhost.exe",
+        "pid": 37520,
+        "status": "running",
+        "memory_usage": 0.019656009009264924
+    },
+    "dwm.exe": {
+        "name": "dwm.exe",
+        "pid": 2228,
+        "status": "running",
+        "memory_usage": 0.2379544654648857
+    },
+    "Adobe Crash Processor.exe": {
+        "name": "Adobe Crash Processor.exe",
+        "pid": 2280,
+        "status": "running",
+        "memory_usage": 0.0043693394184710155
+    },
+    "RuntimeBroker.exe": {
+        "name": "RuntimeBroker.exe",
+        "pid": 30712,
+        "status": "running",
+        "memory_usage": 0.06738171367658607
+    },
+    "DDVRulesProcessor.exe": {
+        "name": "DDVRulesProcessor.exe",
+        "pid": 2508,
+        "status": "running",
+        "memory_usage": 0.012879320048936601
+    },
+    "dllhost.exe": {
+        "name": "dllhost.exe",
+        "pid": 27368,
+        "status": "running",
+        "memory_usage": 0.014395950260306706
+    },
+    "vmms.exe": {
+        "name": "vmms.exe",
+        "pid": 3244,
+        "status": "running",
+        "memory_usage": 0.08986635839753333
+    },
+    "MpDefenderCoreService.exe": {
+        "name": "MpDefenderCoreService.exe",
+        "pid": 3452,
+        "status": "running",
+        "memory_usage": 0.04862846074551763
+    },
+    "IDBWM.exe": {
+        "name": "IDBWM.exe",
+        "pid": 8828,
+        "status": "running",
+        "memory_usage": 0.014865383420968882
+    },
+    "MemCompression": {
+        "name": "MemCompression",
+        "pid": 3616,
+        "status": "running",
+        "memory_usage": 5.834669011104141
+    },
+    "IntelAudioService.exe": {
+        "name": "IntelAudioService.exe",
+        "pid": 3728,
+        "status": "running",
+        "memory_usage": 0.01559962503123536
+    },
+    "InDesign.exe": {
+        "name": "InDesign.exe",
+        "pid": 15712,
+        "status": "running",
+        "memory_usage": 0.017152365485733324
+    },
+    "PowerToys.Peek.UI.exe": {
+        "name": "PowerToys.Peek.UI.exe",
+        "pid": 3816,
+        "status": "running",
+        "memory_usage": 0.033305680911595865
+    },
+    "ipf_uf.exe": {
+        "name": "ipf_uf.exe",
+        "pid": 3844,
+        "status": "running",
+        "memory_usage": 0.007896106497291971
+    },
+    "backgroundTaskHost.exe": {
+        "name": "backgroundTaskHost.exe",
+        "pid": 26708,
+        "status": "stopped",
+        "memory_usage": 0.002973076684193776
+    },
+    "vmcompute.exe": {
+        "name": "vmcompute.exe",
+        "pid": 4460,
+        "status": "running",
+        "memory_usage": 0.028298393864532662
+    },
+    "Arc.exe": {
+        "name": "Arc.exe",
+        "pid": 34420,
+        "status": "running",
+        "memory_usage": 0.9116753082490721
+    },
+    "spoolsv.exe": {
+        "name": "spoolsv.exe",
+        "pid": 4512,
+        "status": "running",
+        "memory_usage": 0.01709218174718689
+    },
+    "Creative Cloud Helper.exe": {
+        "name": "Creative Cloud Helper.exe",
+        "pid": 4672,
+        "status": "running",
+        "memory_usage": 0.04589611901550959
+    },
+    "OfficeClickToRun.exe": {
+        "name": "OfficeClickToRun.exe",
+        "pid": 28384,
+        "status": "running",
+        "memory_usage": 0.03432880446688522
+    },
+    "Dell.TechHub.exe": {
+        "name": "Dell.TechHub.exe",
+        "pid": 4836,
+        "status": "running",
+        "memory_usage": 0.09245425915502994
+    },
+    "Dell.TrustedDevice.Service.exe": {
+        "name": "Dell.TrustedDevice.Service.exe",
+        "pid": 4852,
+        "status": "running",
+        "memory_usage": 0.08469055688254012
+    },
+    "DellPairService.exe": {
+        "name": "DellPairService.exe",
+        "pid": 4872,
+        "status": "running",
+        "memory_usage": 0.04092494221157424
+    },
+    "node.exe": {
+        "name": "node.exe",
+        "pid": 36044,
+        "status": "running",
+        "memory_usage": 0.22663992261815633
+    },
+    "DPMService.exe": {
+        "name": "DPMService.exe",
+        "pid": 4968,
+        "status": "running",
+        "memory_usage": 0.05491164304976521
+    },
+    "OneApp.IGCC.WinService.exe": {
+        "name": "OneApp.IGCC.WinService.exe",
+        "pid": 5016,
+        "status": "running",
+        "memory_usage": 0.030212236750309224
+    },
+    "ipfsvc.exe": {
+        "name": "ipfsvc.exe",
+        "pid": 5052,
+        "status": "running",
+        "memory_usage": 0.005476720207725378
+    },
+    "jhi_service.exe": {
+        "name": "jhi_service.exe",
+        "pid": 5060,
+        "status": "running",
+        "memory_usage": 0.0055007937031439505
+    },
+    "IntelAnalyticsService.exe": {
+        "name": "IntelAnalyticsService.exe",
+        "pid": 5068,
+        "status": "running",
+        "memory_usage": 0.017706055880360505
+    },
+    "RstMwService.exe": {
+        "name": "RstMwService.exe",
+        "pid": 5136,
+        "status": "running",
+        "memory_usage": 0.0078720330018734
+    },
+    "RtkAudUService64.exe": {
+        "name": "RtkAudUService64.exe",
+        "pid": 15968,
+        "status": "running",
+        "memory_usage": 0.022653159188877274
+    },
+    "sihost.exe": {
+        "name": "sihost.exe",
+        "pid": 5180,
+        "status": "running",
+        "memory_usage": 0.08743493536025745
+    },
+    "WavesAudioService.exe": {
+        "name": "WavesAudioService.exe",
+        "pid": 5284,
+        "status": "running",
+        "memory_usage": 0.012783026067262308
+    },
+    "DPMCrashHandler.exe": {
+        "name": "DPMCrashHandler.exe",
+        "pid": 7068,
+        "status": "running",
+        "memory_usage": 0.005163764767283927
+    },
+    "WavesSysSvc64.exe": {
+        "name": "WavesSysSvc64.exe",
+        "pid": 5380,
+        "status": "running",
+        "memory_usage": 0.09205704648062349
+    },
+    "MsMpEng.exe": {
+        "name": "MsMpEng.exe",
+        "pid": 5388,
+        "status": "running",
+        "memory_usage": 0.6609498534646334
+    },
+    "WMIRegistrationService.exe": {
+        "name": "WMIRegistrationService.exe",
+        "pid": 5420,
+        "status": "running",
+        "memory_usage": 0.005801712395876114
+    },
+    "wlanext.exe": {
+        "name": "wlanext.exe",
+        "pid": 6088,
+        "status": "running",
+        "memory_usage": 0.0075470408137226636
+    },
+    "DellPair.exe": {
+        "name": "DellPair.exe",
+        "pid": 6588,
+        "status": "running",
+        "memory_usage": 0.026625285932941837
+    },
+    "PowerToys.ColorPickerUI.exe": {
+        "name": "PowerToys.ColorPickerUI.exe",
+        "pid": 6900,
+        "status": "running",
+        "memory_usage": 0.16654044130568862
+    },
+    "ipf_helper.exe": {
+        "name": "ipf_helper.exe",
+        "pid": 6980,
+        "status": "running",
+        "memory_usage": 0.01364967190233094
+    },
+    "WidgetBoard.exe": {
+        "name": "WidgetBoard.exe",
+        "pid": 7000,
+        "status": "running",
+        "memory_usage": 0.09040801204445123
+    },
+    "DPM.exe": {
+        "name": "DPM.exe",
+        "pid": 7108,
+        "status": "running",
+        "memory_usage": 0.07218437601259141
+    },
+    "Dell.Update.SubAgent.exe": {
+        "name": "Dell.Update.SubAgent.exe",
+        "pid": 7236,
+        "status": "running",
+        "memory_usage": 0.08484703460276084
+    },
+    "Dell.TechHub.Diagnostics.SubAgent.exe": {
+        "name": "Dell.TechHub.Diagnostics.SubAgent.exe",
+        "pid": 7452,
+        "status": "running",
+        "memory_usage": 0.3001242673833507
+    },
+    "Dell.TechHub.Instrumentation.SubAgent.exe": {
+        "name": "Dell.TechHub.Instrumentation.SubAgent.exe",
+        "pid": 7752,
+        "status": "running",
+        "memory_usage": 0.39218131386397415
+    },
+    "DellOptimizer.exe": {
+        "name": "DellOptimizer.exe",
+        "pid": 8072,
+        "status": "running",
+        "memory_usage": 0.15775361547790942
+    },
+    "Dell.Optimizer.DthProxy.exe": {
+        "name": "Dell.Optimizer.DthProxy.exe",
+        "pid": 8084,
+        "status": "running",
+        "memory_usage": 0.02503643523531601
+    },
+    "Dell.CoreServices.Client.exe": {
+        "name": "Dell.CoreServices.Client.exe",
+        "pid": 8116,
+        "status": "running",
+        "memory_usage": 0.23511379300549407
+    },
+    "Dell.TechHub.Analytics.SubAgent.exe": {
+        "name": "Dell.TechHub.Analytics.SubAgent.exe",
+        "pid": 8160,
+        "status": "running",
+        "memory_usage": 0.19416477729850123
+    },
+    "Dell.TechHub.DataManager.SubAgent.exe": {
+        "name": "Dell.TechHub.DataManager.SubAgent.exe",
+        "pid": 8184,
+        "status": "running",
+        "memory_usage": 0.2015433036442939
+    },
+    "WavesSvc64.exe": {
+        "name": "WavesSvc64.exe",
+        "pid": 8288,
+        "status": "running",
+        "memory_usage": 0.04137030187681785
+    },
+    "ChatGPT.exe": {
+        "name": "ChatGPT.exe",
+        "pid": 34892,
+        "status": "running",
+        "memory_usage": 0.09062467350321839
+    },
+    "explorer.exe": {
+        "name": "explorer.exe",
+        "pid": 31432,
+        "status": "running",
+        "memory_usage": 0.2846209363337896
+    },
+    "PowerToys.CropAndLock.exe": {
+        "name": "PowerToys.CropAndLock.exe",
+        "pid": 8948,
+        "status": "running",
+        "memory_usage": 0.003538803826530244
+    },
+    "PowerToys.PowerOCR.exe": {
+        "name": "PowerToys.PowerOCR.exe",
+        "pid": 9092,
+        "status": "running",
+        "memory_usage": 0.07365285923312435
+    },
+    "PowerToys.FancyZones.exe": {
+        "name": "PowerToys.FancyZones.exe",
+        "pid": 9100,
+        "status": "running",
+        "memory_usage": 0.059124504748015505
+    },
+    "IntelConnect.exe": {
+        "name": "IntelConnect.exe",
+        "pid": 9120,
+        "status": "running",
+        "memory_usage": 0.030561302433878532
+    },
+    "IntelConnectivityNetworkService.exe": {
+        "name": "IntelConnectivityNetworkService.exe",
+        "pid": 9184,
+        "status": "running",
+        "memory_usage": 0.07916568968397761
+    },
+    "AdobeIPCBroker.exe": {
+        "name": "AdobeIPCBroker.exe",
+        "pid": 9316,
+        "status": "running",
+        "memory_usage": 0.017332916701372623
+    },
+    "AggregatorHost.exe": {
+        "name": "AggregatorHost.exe",
+        "pid": 9328,
+        "status": "running",
+        "memory_usage": 0.0295141053831706
+    },
+    "taskhostw.exe": {
+        "name": "taskhostw.exe",
+        "pid": 32440,
+        "status": "running",
+        "memory_usage": 0.08243968506090354
+    },
+    "StartMenuExperienceHost.exe": {
+        "name": "StartMenuExperienceHost.exe",
+        "pid": 9832,
+        "status": "running",
+        "memory_usage": 0.21922528602923583
+    },
+    "WmiPrvSE.exe": {
+        "name": "WmiPrvSE.exe",
+        "pid": 10224,
+        "status": "running",
+        "memory_usage": 0.04735256548833326
+    },
+    "PowerToys.PowerLauncher.exe": {
+        "name": "PowerToys.PowerLauncher.exe",
+        "pid": 10744,
+        "status": "running",
+        "memory_usage": 0.36580879963292734
+    },
+    "ShellExperienceHost.exe": {
+        "name": "ShellExperienceHost.exe",
+        "pid": 11296,
+        "status": "stopped",
+        "memory_usage": 0.1780836823588944
+    },
+    "PowerToys.exe": {
+        "name": "PowerToys.exe",
+        "pid": 11332,
+        "status": "running",
+        "memory_usage": 0.06738171367658607
+    },
+    "PowerToys.KeyboardManagerEngine.exe": {
+        "name": "PowerToys.KeyboardManagerEngine.exe",
+        "pid": 11692,
+        "status": "running",
+        "memory_usage": 0.00526005874895822
+    },
+    "Creative Cloud UI Helper.exe": {
+        "name": "Creative Cloud UI Helper.exe",
+        "pid": 23136,
+        "status": "running",
+        "memory_usage": 0.15939061316637243
+    },
+    "unsecapp.exe": {
+        "name": "unsecapp.exe",
+        "pid": 17064,
+        "status": "running",
+        "memory_usage": 0.011687682025717233
+    },
+    "CrossDeviceService.exe": {
+        "name": "CrossDeviceService.exe",
+        "pid": 12844,
+        "status": "running",
+        "memory_usage": 0.1216554090977591
+    },
+    "msdtc.exe": {
+        "name": "msdtc.exe",
+        "pid": 13040,
+        "status": "running",
+        "memory_usage": 0.00588596962984112
+    },
+    "MicrosoftStartFeedProvider.exe": {
+        "name": "MicrosoftStartFeedProvider.exe",
+        "pid": 13188,
+        "status": "running",
+        "memory_usage": 0.07949068187212834
+    },
+    "SearchIndexer.exe": {
+        "name": "SearchIndexer.exe",
+        "pid": 13420,
+        "status": "running",
+        "memory_usage": 0.07587965755934237
+    },
+    "msedgewebview2.exe": {
+        "name": "msedgewebview2.exe",
+        "pid": 36540,
+        "status": "running",
+        "memory_usage": 0.06891038063566546
+    },
+    "ShellHost.exe": {
+        "name": "ShellHost.exe",
+        "pid": 13836,
+        "status": "running",
+        "memory_usage": 0.08340262487764646
+    },
+    "ctfmon.exe": {
+        "name": "ctfmon.exe",
+        "pid": 14224,
+        "status": "running",
+        "memory_usage": 0.059196725234271226
+    },
+    "powershell.exe": {
+        "name": "powershell.exe",
+        "pid": 25004,
+        "status": "running",
+        "memory_usage": 0.2011099807267596
+    },
+    "PowerToys.AdvancedPaste.exe": {
+        "name": "PowerToys.AdvancedPaste.exe",
+        "pid": 14700,
+        "status": "running",
+        "memory_usage": 0.04001014938566847
+    },
+    "NisSrv.exe": {
+        "name": "NisSrv.exe",
+        "pid": 15652,
+        "status": "running",
+        "memory_usage": 0.0176217986463955
+    },
+    "Adobe Desktop Service.exe": {
+        "name": "Adobe Desktop Service.exe",
+        "pid": 16164,
+        "status": "running",
+        "memory_usage": 0.1964999063541028
+    },
+    "audiodg.exe": {
+        "name": "audiodg.exe",
+        "pid": 16780,
+        "status": "running",
+        "memory_usage": 0.15827119562940875
+    },
+    "IntelConnectService.exe": {
+        "name": "IntelConnectService.exe",
+        "pid": 17108,
+        "status": "running",
+        "memory_usage": 0.008762752332360605
+    },
+    "IDBWMService.exe": {
+        "name": "IDBWMService.exe",
+        "pid": 17276,
+        "status": "running",
+        "memory_usage": 0.008413686648791293
+    },
+    "SecurityHealthSystray.exe": {
+        "name": "SecurityHealthSystray.exe",
+        "pid": 17436,
+        "status": "running",
+        "memory_usage": 0.009870133121614966
+    },
+    "SecurityHealthService.exe": {
+        "name": "SecurityHealthService.exe",
+        "pid": 17484,
+        "status": "running",
+        "memory_usage": 0.0391796137937277
+    },
+    "python.exe": {
+        "name": "python.exe",
+        "pid": 34440,
+        "status": "running",
+        "memory_usage": 0.01142287357611293
+    },
+    "ms-teams.exe": {
+        "name": "ms-teams.exe",
+        "pid": 28916,
+        "status": "running",
+        "memory_usage": 0.0901672770902655
+    },
+    "WmiApSrv.exe": {
+        "name": "WmiApSrv.exe",
+        "pid": 21300,
+        "status": "running",
+        "memory_usage": 0.011374726585275784
+    },
+    "AdobeNotificationClient.exe": {
+        "name": "AdobeNotificationClient.exe",
+        "pid": 21608,
+        "status": "stopped",
+        "memory_usage": 0.00424897194137815
+    },
+    "DDVDataCollector.exe": {
+        "name": "DDVDataCollector.exe",
+        "pid": 21880,
+        "status": "running",
+        "memory_usage": 0.15732029256037514
+    },
+    "ServiceShell.exe": {
+        "name": "ServiceShell.exe",
+        "pid": 21884,
+        "status": "running",
+        "memory_usage": 0.15854804082672233
+    },
+    "Dell.D3.WinSvc.exe": {
+        "name": "Dell.D3.WinSvc.exe",
+        "pid": 22372,
+        "status": "running",
+        "memory_usage": 0.10995569032433258
+    },
+    "DellSupportAssistRemedationService.exe": {
+        "name": "DellSupportAssistRemedationService.exe",
+        "pid": 22484,
+        "status": "running",
+        "memory_usage": 0.14611408044302934
+    },
+    "SupportAssistAgent.exe": {
+        "name": "SupportAssistAgent.exe",
+        "pid": 22700,
+        "status": "running",
+        "memory_usage": 0.45609644420028567
+    },
+    "ApplicationFrameHost.exe": {
+        "name": "ApplicationFrameHost.exe",
+        "pid": 23492,
+        "status": "running",
+        "memory_usage": 0.05072285484693349
+    },
+    "CCXProcess.exe": {
+        "name": "CCXProcess.exe",
+        "pid": 23584,
+        "status": "running",
+        "memory_usage": 0.011133991631090053
+    },
+    "DataExchangeHost.exe": {
+        "name": "DataExchangeHost.exe",
+        "pid": 24472,
+        "status": "running",
+        "memory_usage": 0.061002237390664196
+    },
+    "Dell.TechHub.Instrumentation.UserProcess.exe": {
+        "name": "Dell.TechHub.Instrumentation.UserProcess.exe",
+        "pid": 25556,
+        "status": "running",
+        "memory_usage": 0.14109475664825685
+    },
+    "Creative Cloud.exe": {
+        "name": "Creative Cloud.exe",
+        "pid": 27196,
+        "status": "running",
+        "memory_usage": 0.22621863644833132
+    },
+    "Microsoft.SharePoint.exe": {
+        "name": "Microsoft.SharePoint.exe",
+        "pid": 27960,
+        "status": "running",
+        "memory_usage": 0.02552994189139676
+    },
+    "AdobeUpdateService.exe": {
+        "name": "AdobeUpdateService.exe",
+        "pid": 28128,
+        "status": "running",
+        "memory_usage": 0.018861583660452014
+    },
+    "SearchHost.exe": {
+        "name": "SearchHost.exe",
+        "pid": 28280,
+        "status": "stopped",
+        "memory_usage": 0.2794571715665057
+    },
+    "TextInputHost.exe": {
+        "name": "TextInputHost.exe",
+        "pid": 29500,
+        "status": "running",
+        "memory_usage": 0.22323352301642824
+    },
+    "CoreSync.exe": {
+        "name": "CoreSync.exe",
+        "pid": 29732,
+        "status": "running",
+        "memory_usage": 0.0883738016815818
+    },
+    "rundll32.exe": {
+        "name": "rundll32.exe",
+        "pid": 31608,
+        "status": "running",
+        "memory_usage": 0.011555277800915082
+    },
+    "PowerToys.Settings.exe": {
+        "name": "PowerToys.Settings.exe",
+        "pid": 31976,
+        "status": "running",
+        "memory_usage": 0.19513975386295343
+    },
+    "SearchProtocolHost.exe": {
+        "name": "SearchProtocolHost.exe",
+        "pid": 34180,
+        "status": "running",
+        "memory_usage": 0.03641116182059179
+    },
+    "SystemSettings.exe": {
+        "name": "SystemSettings.exe",
+        "pid": 35408,
+        "status": "stopped",
+        "memory_usage": 0.004381376166180302
+    },
+    "LockApp.exe": {
+        "name": "LockApp.exe",
+        "pid": 36048,
+        "status": "stopped",
+        "memory_usage": 0.19229908140356183
+    },
+    "PhoneExperienceHost.exe": {
+        "name": "PhoneExperienceHost.exe",
+        "pid": 38276,
+        "status": "running",
+        "memory_usage": 0.4260527219179065
+    }
+}

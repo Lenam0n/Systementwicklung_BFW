@@ -1,13 +1,11 @@
 # VSCode Config Files
 /.vscode
 
-# Outputs von der File Erstellfunktion
-/LA06/out/*
-/LA08/LA08_5/out/*
+# .Env file
+*/.env
+
+# Outputs
+*/out/*
 
 # Pycache
-/Utils/__pycache__
-/Utils/UtilFunctions/__pycache__
-/Utils/UtilFunctions/osUtils/__pycache__
-
-**/__pycache__/*
+**/__pycache__

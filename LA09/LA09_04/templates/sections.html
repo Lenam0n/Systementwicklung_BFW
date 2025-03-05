@@ -1,0 +1,16 @@
+<!--  -->
+{% macro css() %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/sections.css') }}"
+/>
+{% endmacro %}
+<!--  -->
+{% macro render(title,description) %}
+<section id="features-{{title}}" class="features">
+  <div class="feature-item">
+    <h3 class="feature-title">{{title}}</h3>
+    <p class="feature-description">{{description}}</p>
+  </div>
+</section>
+{% endmacro %}

@@ -1,0 +1,68 @@
+/* sections.css */
+
+/* Globales Styling für den Features-Bereich */
+.features {
+  padding: 60px 20px;
+  text-align: center;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Styling für ein einzelnes Feature-Item */
+.feature-item {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  aspect-ratio: 1;
+  align-content: center;
+  box-sizing: border-box;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling für den Feature-Titel */
+.feature-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2em;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+/* Styling für die Feature-Beschreibung */
+.feature-description {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2em;
+  color: #555555;
+  line-height: 1.6;
+}
+
+/* Section-Wrapper: Grid-Layout für die Feature-Items */
+.section-wrapper {
+  display: grid;
+  /* Erzeugt so viele Spalten wie möglich mit mindestens 280px Breite */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px; /* Abstand zwischen den Items */
+  padding: 20px;
+}
+.wrapper {
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+  height: auto;
+  width: auto;
+}
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+  .feature-item {
+    padding: 20px;
+  }
+  .feature-title {
+    font-size: 1.5em;
+  }
+  .feature-description {
+    font-size: 1em;
+  }
+}

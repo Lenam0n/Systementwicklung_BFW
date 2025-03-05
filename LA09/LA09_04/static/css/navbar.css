@@ -1,0 +1,56 @@
+/* static/css/navbar.css */
+
+/* Grundlayout der Navbar */
+#navbar {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Container, der alle Inhalte bündelt */
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Branding/Logo-Bereich */
+#navbar-brand a {
+  color: #ecf0f1;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Menü-Liste */
+#navbar-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+/* Einzelner Menüpunkt */
+.navbar__item {
+  margin-left: 1rem;
+}
+
+/* Link innerhalb des Menüpunktes */
+.navbar__link {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar__link:hover,
+.navbar__link:focus {
+  background-color: #34495e;
+  text-decoration: none;
+}

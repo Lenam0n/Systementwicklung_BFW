@@ -1,0 +1,40 @@
+{% macro render(title, data) %}
+<div class="card">
+  <div class="card-header">{{ title }}</div>
+  <div class="card-body">
+    {% for item in data %} {% for key, value in item.items() %}
+    <div class="weather-card-element">
+      <p class="weather-card-p-title">{{ key|capitalize }}</p>
+
+      {% if value is mapping %} {% for sub_key, sub_value in value.items() %}
+      <div class="weather-card-element">
+        <p class="weather-card-p-subtitle">{{ sub_key|capitalize }}</p>
+        <p class="weather-card-p-value">{{ sub_value }}</p>
+      </div>
+      {% endfor %} {% elif value is iterable and value is not string %} {% for
+      sub in value %}
+      <div class="weather-card-element">
+        <p class="weather-card-p-value">{{ sub }}</p>
+      </div>
+      {% endfor %} {% else %}
+      <p class="weather-card-p-value">{{ value }}</p>
+      {% endif %}
+    </div>
+    {% endfor %} {% endfor %}
+  </div>
+</div>
+{% endmacro %}
+
+<!-- {# <div class="card-header">Wetterdaten</div>
+  <div class="card-body">
+    <p>Temperatur: {{ weather_info["main"]["temp"] }}°</p>
+    <p>
+      Wetter: {% for weather in weather_info.weather %} {{ weather.description
+      }}{% if not loop.last %}, {% endif %} {% endfor %}
+    </p>
+    <div>
+      <p>Windspeed: {{ weather_info.wind.speed }}km/h</p>
+      <p>Windrichtung: {{ weather_info.wind.deg }}°</p>
+    </div>
+  </div>
+</div> #} -->

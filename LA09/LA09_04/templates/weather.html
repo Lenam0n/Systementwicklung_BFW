@@ -1,0 +1,29 @@
+{# templates/weather.html #}
+<!--  -->
+{% extends "base.html" %}
+<!--  -->
+{% import "weather_card.html" as card %}
+<!--  -->
+{% block title %}Wetter für ID: {{ weather_info["name"] }} {% endblock %}
+<!--  -->
+{% block css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/weather.css') }}"
+/>
+{{ super() }}
+<!--  -->
+{% endblock %}
+<!--  -->
+{% block content %}
+<h1>Wetter für {{ weather_info["name"] }}</h1>
+<div class="card" style="max-width: 500px; margin: 20px auto">
+  {% set temp_unit = "K" %} {% if weather_info["units"] == "imperial" %} {% set
+  temp_unit = "°F" %} {% elif weather_info["units"] == "metric" %} {% set
+  temp_unit = "°C" %} {% endif %} {% set data = [ { "temperatur":
+  weather_info["main"]["temp"] ~ temp_unit, "wetter": weather_info["weather"] |
+  map(attribute="description") | list, "wind": { "speed":
+  weather_info["wind"]["speed"] ~ " km/h", "deg": weather_info["wind"]["deg"] ~
+  "°" } } ] %} {{ card.render("Wetterdaten", data) }}
+</div>
+{% endblock %}

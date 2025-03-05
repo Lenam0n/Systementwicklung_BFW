@@ -1,0 +1,27 @@
+.card {
+  min-width: 250px;
+  width: fit-content;
+}
+.card-header {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+.weather-card-p-title {
+  font-weight: 600;
+}
+.weather-card-p-subtitle {
+  font-weight: 400;
+  font-style: italic;
+}
+.weather-card-element {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.weather-card-element:has(> .weather-card-element) {
+  display: flex;
+  flex-direction: column;
+}
+.weather-card-element:has(> p.weather-card-p-value:only-child) {
+  justify-content: flex-end;
+}

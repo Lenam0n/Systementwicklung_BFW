@@ -4,7 +4,9 @@ class Task:
     _status: str  #! custom type für running | sleep
     _memory_usage: float
 
-    def __init__(self, pid: int, name: str, status: str, memory_usage: float):
+    def __init__(self, 
+                 pid: int, name: str, 
+                 status: str, memory_usage: float):
         self._pid = pid
         self._name = name
         self._status = status

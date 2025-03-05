@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+<!--  -->
+{% import "hero.html" as hero %} {% import "sections.html" as sections %}
+
+<!--  -->
+{% block title %}Startseite{% endblock %} {% block css %}{{super() }}
+{{sections.css()}}{% endblock %}
+<!--  -->
+{% block content %}
+<!--  -->
+{{ hero.render( "Willkommen auf der Startseite!", "Dies ist eine wunderschöne
+Hero Section, die als wiederverwendbare Komponente dient.", url_for('static',
+filename='images/hero-background.jpg') ) }}
+<!--  -->
+
+<!--  -->
+<div class="wrapper">
+  <h2>Weitere Inhalte</h2>
+  <div class="section-wrapper">
+    {% for sec in Sections %}
+    {{sections.render(sec["title"],sec["description"])}} {% endfor %}
+  </div>
+</div>
+<!--  -->
+{% endblock %}

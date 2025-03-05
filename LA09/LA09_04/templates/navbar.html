@@ -1,0 +1,39 @@
+{# templates/navbar.html #}
+<!--  -->
+{% macro css() %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/navbar.css') }}"
+/>
+{% endmacro %}
+<!--  -->
+{% macro nav_item(label, url) %}
+<li class="navbar__item" id="navbar-item-{{ label|replace(' ', '-')}} ">
+  <a class="navbar__link" href="{{ url }}">{{ label }}</a>
+</li>
+{% endmacro %}
+<!--  -->
+{% macro build_navbar(brand, items) %}
+<nav id="navbar" class="navbar">
+  <div class="navbar__container">
+    <div class="navbar__brand" id="navbar-brand">
+      <a href="/">{{ brand }}</a>
+    </div>
+    <ul class="navbar__menu" id="navbar-menu">
+      {% for item in items %} {{ nav_item(item.label, item.link) }} {% endfor %}
+    </ul>
+  </div>
+</nav>
+
+{% endmacro %}
+<!--  -->
+{% macro render() %}
+<!--  -->
+{% set items = [ {'label': 'Home', 'link': '/'}, {'label': 'Wetter', 'link':
+'/weather'} ] %}
+<!--  -->
+{% set title = "UwU" %}
+<!--  -->
+{{ build_navbar(title, items) }}
+<!--  -->
+{% endmacro %}

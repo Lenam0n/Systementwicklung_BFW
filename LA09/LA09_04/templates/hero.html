@@ -1,0 +1,31 @@
+{# templates/hero.html #} {% macro css() %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/hero.css') }}"
+/>
+{% endmacro %} {% macro render(title, subtitle, button_text, button_link,
+background_image=None) %}
+<div
+  id="hero-section-unique"
+  class="hero-section-unique"
+  {%
+  if
+  background_image
+  %}style="background-image: url('{{ background_image }}');"
+  {%
+  endif
+  %}
+>
+  <!-- Optionaler Overlay für bessere Lesbarkeit -->
+  <div class="hero-overlay-unique"></div>
+  <div class="hero-content-unique">
+    <h1 class="hero-title-unique">{{ title }}</h1>
+    <p class="hero-subtitle-unique">{{ subtitle }}</p>
+    {% if button_text and button_link %}
+    <a class="hero-cta-button-unique" href="{{ button_link }}"
+      >{{ button_text }}</a
+    >
+    {% endif %}
+  </div>
+</div>
+{% endmacro %}
